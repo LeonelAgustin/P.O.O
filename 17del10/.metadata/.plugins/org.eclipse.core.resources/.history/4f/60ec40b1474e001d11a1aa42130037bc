@@ -1,0 +1,31 @@
+package ejNuevo;
+
+public class Colectivo {
+	private int patente;
+	private double tarifa;
+	private int cant_per;
+	
+	public Colectivo(int patente, double tarifa) {
+		super();
+		this.patente = patente;
+		this.tarifa = tarifa;
+	}
+	public int getPatente() {
+		return patente;
+	}
+	public void setPatente(int patente) {
+		this.patente = patente;
+	}
+	public double getTarifa() {
+		return tarifa;
+	}
+	public void setTarifa(double tarifa) {
+		this.tarifa = tarifa;
+	}
+	@Override
+	public String toString() {
+		return "Colectivo [patente=" + patente + ", tarifa=" + tarifa + "]";
+	}
+	
+	
+}

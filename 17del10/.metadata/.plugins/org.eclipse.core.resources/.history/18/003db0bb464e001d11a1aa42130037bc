@@ -1,0 +1,7 @@
+package ejNuevo;
+
+public class Motor {
+	private int parte;
+	private String modelo;
+	private String estado;
+}
