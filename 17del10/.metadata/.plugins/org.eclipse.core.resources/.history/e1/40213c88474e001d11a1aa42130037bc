@@ -1,8 +1,0 @@
-package ejNuevo;
-
-public class Pasajero {
-	private int dni;
-	private String nombre;
-	private Sube tarjeta;
- 
-}
