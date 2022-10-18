@@ -1,11 +1,11 @@
-package ejNuevo;
+package logica;
 
 public class Motor {
 	private int parte;
 	private String modelo;
-	private String estado;
+	private int estado;
 	
-	public Motor(int parte, String modelo, String estado) {
+	public Motor(int parte, String modelo, int estado) {
 		super();
 		this.parte = parte;
 		this.modelo = modelo;
@@ -23,10 +23,10 @@ public class Motor {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public String getEstado() {
+	public int getEstado() {
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(int estado) {
 		this.estado = estado;
 	}
 	@Override

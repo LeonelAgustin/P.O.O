@@ -1,4 +1,4 @@
-package ejNuevo;
+package logica;
 
 import javax.swing.JOptionPane;
 
@@ -37,17 +37,20 @@ public class Colectivo {
 		return "Colectivo [patente=" + patente + ", tarifa=" + tarifa + "]";
 	}
 	
-	public String arrancar(Motor motor) {
-		if (motor.getEstado().equalsIgnoreCase("arrancable")) {
-			return "el colectivo arranca con "+this.cant_per+" pasajeros";
-		} else {
-			return "el colectivo no puede arrancar, revisar motor";
+	public int arrancar(Motor motor) {
+		if (motor.getEstado() <= 30) {
+			return 1;
+			
+		} else if(motor.getEstado() <= 60) {
+			return 2;
+		}else {
+			return 3;
 		}
 	}
 	
-	public void agregarPasajeros(int cantidad) {
+	public int agregarPasajeros(int cantidad) {
 		this.cant_per = getCant_per() + cantidad;
-		JOptionPane.showMessageDialog(null, "ahora hay "+this.cant_per+" pasajeros en el colectivo");
+		return this.cant_per;
 	}
 		
 }

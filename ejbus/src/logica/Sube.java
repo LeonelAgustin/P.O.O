@@ -1,4 +1,4 @@
-package ejNuevo;
+package logica;
 
 import javax.swing.JOptionPane;
 
@@ -27,14 +27,5 @@ public class Sube {
 		return "Sube [num=" + num + ", credito=" + credito + "]";
 	}
 	
-	public void cobrar(Colectivo bus) {
-		
-		if (this.credito < bus.getTarifa()) {
-			JOptionPane.showMessageDialog(null, "saldo insuficiente");
-		} else {
-			this.credito = getCredito() - bus.getTarifa();
-			JOptionPane.showMessageDialog(null, "nuevo saldo: "+this.credito);
-		}
-		
-	}
+	
 }

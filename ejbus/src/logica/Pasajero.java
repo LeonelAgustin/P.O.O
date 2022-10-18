@@ -1,4 +1,6 @@
-package ejNuevo;
+package logica;
+
+import javax.swing.JOptionPane;
 
 public class Pasajero {
 	private int dni;
@@ -32,5 +34,16 @@ public class Pasajero {
 	public String toString() {
 		return "Pasajero [dni=" + dni + ", nombre=" + nombre + ", tarjeta=" + tarjeta + "]";
 	}
- 
+	public boolean cobrar(Sube tarjeta, Colectivo bus) {
+		
+		if (tarjeta.getCredito() < bus.getTarifa()) {
+			return false;
+			
+		} else {
+			tarjeta.setCredito(tarjeta.getCredito() - bus.getTarifa());
+			return true;
+			
+		}
+		
+	}
 }
