@@ -1,13 +1,16 @@
+import java.util.LinkedList;
 
+public class Libros {
 
-public class Producto {
 	private int id;
 	private String nombre;
-	public Producto(int id, String nombre) {
+	
+	public Libros(int id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -20,10 +23,12 @@ public class Producto {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	@Override
-	public String toString() {
-		return "Productos [id=" + id + ", nombre=" + nombre + "]";
-	}
 	
-//	
+	
+
+
+	
+	
+	
+	
 }
