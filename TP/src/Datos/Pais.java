@@ -1,5 +1,7 @@
 package Datos;
 
+import javax.swing.JOptionPane;
+
 public class Pais {
 	private String nombre;
 	private int goles;
@@ -70,6 +72,34 @@ public class Pais {
 	public String toString() {
 		return "Pais [nombre=" + nombre + ", goles=" + goles + ", clasificado=" + clasificado + ", grupo=" + grupo
 				+ ", resultado=" + resultado + ", representante=" + representante + "]";
+	}
+	
+	public void cambiarDatos() {
+		int b = Integer.parseInt(JOptionPane.showInputDialog("que dato del pais desea cambiar\n1-nombre\n2-goles\n3-clasificado\n4-grupo\n5-resultado\n6-representante"));
+		
+		switch (b) {
+		case 1:
+			break;
+		case 2:
+			int a = Integer.parseInt(JOptionPane.showInputDialog("ingrese goles hechos en el partido"));
+			setGoles(a);
+			JOptionPane.showMessageDialog(null, "Datos cambiados");
+			toString();
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			representante.cambiarDatos();
+			break;
+		}
+		
+		
+		
+		
 	}
 	
 }

@@ -2,11 +2,11 @@ package Datos;
 
 public class Partido {
 	private int id;
-	private Equipo equipo1;
-	private Equipo equipo2;
+	private Pais equipo1;
+	private Pais equipo2;
 	private int duracion;
 	
-	public Partido(int id, Equipo equipo1, Equipo equipo2, int duracion) {
+	public Partido(int id, Pais equipo1, Pais equipo2, int duracion) {
 		super();
 		this.id = id;
 		this.equipo1 = equipo1;
@@ -22,19 +22,19 @@ public class Partido {
 		this.id = id;
 	}
 
-	public Equipo getEquipo1() {
+	public Pais getEquipo1() {
 		return equipo1;
 	}
 
-	public void setEquipo1(Equipo equipo1) {
+	public void setEquipo1(Pais equipo1) {
 		this.equipo1 = equipo1;
 	}
 
-	public Equipo getEquipo2() {
+	public Pais getEquipo2() {
 		return equipo2;
 	}
 
-	public void setEquipo2(Equipo equipo2) {
+	public void setEquipo2(Pais equipo2) {
 		this.equipo2 = equipo2;
 	}
 

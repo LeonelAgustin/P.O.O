@@ -3,6 +3,7 @@ package Datos;
 public class Equipo {
 	private String nombre;
 	private int goles;
+	
 	public Equipo(String nombre, int goles) {
 		super();
 		this.nombre = nombre;
@@ -25,5 +26,8 @@ public class Equipo {
 		return "Equipo [nombre=" + nombre + ", goles=" + goles + "]";
 	}
 	
+	public void cambiarDatos() {
+		
+	}
 	
 }
