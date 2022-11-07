@@ -26,4 +26,8 @@ public class Encargado {
 		return "Encargado [id_encargado=" + id_encargado + ", nombre=" + nombre + "]";
 	}
 	
+	public static void agregarPartdio() {//agregar partidos
+		
+	}
+	
 }
