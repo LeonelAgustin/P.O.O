@@ -1,26 +1,22 @@
 package Datos;
 
+import java.util.Set;
+
+import javax.swing.JOptionPane;
+
 public class Partido {
-	private int id;
 	private Pais equipo1;
 	private Pais equipo2;
 	private int duracion;
 	
 	public Partido(int id, Pais equipo1, Pais equipo2, int duracion) {
 		super();
-		this.id = id;
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;
 		this.duracion = duracion;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 
 	public Pais getEquipo1() {
 		return equipo1;
@@ -48,8 +44,11 @@ public class Partido {
 
 	@Override
 	public String toString() {
-		return "Partido [id=" + id + ", equipo1=" + equipo1 + ", equipo2=" + equipo2 + ", duracion=" + duracion + "]";
+		return "Partido [ equipo1=" + equipo1 + ", equipo2=" + equipo2 + ", duracion=" + duracion + "]";
 	}
 	
+	public static void cambiarDatos() {
+		// NO HACE FALTA CAMBIAR LOS DATOS DEL PARTIDO PORQUE LO INGRESE MANUALMENTE
+	}
 	
 }

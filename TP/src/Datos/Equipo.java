@@ -1,19 +1,19 @@
 package Datos;
 
 public class Equipo {
-	private String nombre;
+	private String nombreE;
 	private int goles;
 	
 	public Equipo(String nombre, int goles) {
 		super();
-		this.nombre = nombre;
+		this.nombreE = nombre;
 		this.goles = goles;
 	}
 	public String getNombre() {
-		return nombre;
+		return nombreE;
 	}
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.nombreE = nombre;
 	}
 	public int getGoles() {
 		return goles;
@@ -23,7 +23,7 @@ public class Equipo {
 	}
 	@Override
 	public String toString() {
-		return "Equipo [nombre=" + nombre + ", goles=" + goles + "]";
+		return "Equipo [nombre=" + nombreE + ", goles=" + goles + "]";
 	}
 	
 	public void cambiarDatos() {
