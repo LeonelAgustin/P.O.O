@@ -23,26 +23,29 @@ public class Main {
 		
 		Encargado pablo = new Encargado (01,"Pablo");
 		
-	
-		
 		LinkedList<Partido> todos = pablo.General();
 		
-		pablo.verpartidos( pablo.General());
-		int menu = Integer.parseInt(JOptionPane.showInputDialog("\n1-ingresar partido a la base de datos\n2-Buscar y/o cambiar datos de un partido\n3-jugar partidos"));
+		int menu = Integer.parseInt(JOptionPane.showInputDialog("\n1-ingresar partido a la base de datos\n2-Buscar y/o cambiar datos de un partido\n3-jugar octavos de final"));
 		
 		switch (menu) {
 		case 1:
 			
 			break;
-		case 2:
-			int res = Integer.parseInt(JOptionPane.showInputDialog("1-Ver la tabla de un grupo\n2-Ver un partido"));
+		case 2:// visualizar partidos
+			int res = Integer.parseInt(JOptionPane.showInputDialog("1-Ver la tabla de un grupo\n2-Ver un partido\n3-Ver todas las tablas"));
 			if (res == 1) {
 				pablo.buscarTabla();
 			} else if(res==2) {
 				pablo.buscarPartidos();
+			}else if (res == 3) {
+				pablo.verpartidos();
 			}
 			break;
 		case 3:
+			// jugar partidos
+			
+			// obentener octavos, cuartos, semis y final
+			String octavo = JOptionPane.showInputDialog("Octavos jugados, ingrese el nombre de u pais para ver si clasifico");
 			break;
 		}
 		
