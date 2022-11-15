@@ -7,6 +7,8 @@ public class Pais {
 	private int goles;
 	private boolean clasificado;
 	private char grupo;
+	private int puntos = 3;
+	private int posicion=0;
 	//private int resultado;//cantidad de goles
 	private Equipo representante;
 	
@@ -17,6 +19,24 @@ public class Pais {
 		this.clasificado = clasificado;
 		this.grupo = grupo;
 		this.representante = representante;
+		this.posicion=0;
+		this.puntos = 3;
+	}
+
+	public int getPuntos() {
+		return puntos;
+	}
+
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
+
+	public int getPosicion() {
+		return posicion;
+	}
+
+	public void setPosicion(int posicion) {
+		this.posicion = posicion;
 	}
 
 	public String getNombre() {

@@ -1,5 +1,6 @@
 package Datos;
 
+import java.awt.Container;
 import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
@@ -43,48 +44,140 @@ public class Encargado {
 		JOptionPane.showMessageDialog(null, "grupo "+grupo+"\n"+tabla);
 	}
 	
-	public static void jugarOctavos () {
-		String tablaUno = "";
-		String tablaDos = "";
+	public static void elegirOctavos () {
 		LinkedList<Partido> todos = General();
-		
-		for (Partido partido : todos) {
+		for (Partido partido : todos) {//goles aleatorios para cada partido
 				partido.getEquipo1().setGoles((int)(Math.random()*5+1));
 				partido.getEquipo2().setGoles((int)(Math.random()*5+1));				
 		}
+		String tablaUno = "";
+		String tablaDos = "";
+		LinkedList<Pais> primeros = new LinkedList<Pais>();
+		LinkedList<Pais> segundos = new LinkedList<Pais>();
+		String ganadorA = "";
+		String ganadorB = "";
+		String ganadorC = "";
+		String ganadorD = "";
+		String ganadorE = "";
+		String ganadorF = "";
+		String ganadorG = "";
+		String ganadorH = "";
+		
+		//Pais auxiliar = new Pais("aux",0,false,'Z',new Equipo("OOO",0));
+		
+		for (Partido partido : todos) {
+			
+			
+			if (partido.getEquipo1().getGoles() == 0) {
+				
+			} else if(partido.getEquipo1().getGoles() == 0){
+
+			}else if (partido.getEquipo1().getGoles() >= partido.getEquipo2().getGoles()) {
+				partido.getEquipo1().setPuntos(partido.getEquipo1().getPuntos()-1);
+				
+				partido.getEquipo1().setPosicion(1);
+				partido.getEquipo2().setPosicion(2);
+			}else {
+				partido.getEquipo2().setPuntos(partido.getEquipo2().getPuntos()-1);
+				
+				ganadorA = partido.getEquipo2().getNombre();
+				partido.getEquipo1().setPosicion(2);
+				partido.getEquipo2().setPosicion(1);
+			}
+		}
 		
 		for (Partido partido2 : todos) {
-			if (partido2.getEquipo1().getGrupo() == 'A' && partido2.getEquipo2().getGrupo() == 'A') {
-				if (partido2.getEquipo1().getGoles() > partido2.getEquipo2().getGoles()) {
-					octavos1().add(partido2.getEquipo1());
-					octavos2().add(partido2.getEquipo1());
-					tablaUno = partido2.getEquipo1().getNombre() +" VS "+partido2.getEquipo2().getNombre()+"\n";
+			
+			switch (partido2.getEquipo1().getGrupo()) {
+			case 'A':
+				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
+					 
+					partido2.getEquipo1().setPosicion(1);
+					partido2.getEquipo2().setPosicion(2);
 				}else {
-					octavos2().add(partido2.getEquipo1());
-					octavos1().add(partido2.getEquipo1());
-					tablaDos = partido2.getEquipo2().getNombre() +" VS "+partido2.getEquipo1().getNombre()+"\n";
+					ganadorA = partido2.getEquipo2().getNombre();
+					partido2.getEquipo1().setPosicion(2);
+					partido2.getEquipo2().setPosicion(1);
 				}
+				
+				break;
+				
+			case 'B':
+				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
+					ganadorB = partido2.getEquipo1().getNombre(); 
+				}else {
+					ganadorB = partido2.getEquipo2().getNombre();
+				}
+				break;
+				
+			case 'C':
+				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
+					ganadorC = partido2.getEquipo1().getNombre(); 
+				}else {
+					ganadorC = partido2.getEquipo2().getNombre();
+				}
+				break;
+				
+			case 'D':
+				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
+					ganadorD = partido2.getEquipo1().getNombre(); 
+				}else {
+					ganadorD = partido2.getEquipo2().getNombre();
+				}
+				break;
+			case 'E':
+				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
+					ganadorE = partido2.getEquipo1().getNombre(); 
+				}else {
+					ganadorE = partido2.getEquipo2().getNombre();
+				}
+				break;
+				
+			case 'F':
+				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
+					ganadorF = partido2.getEquipo1().getNombre(); 
+				}else {
+					ganadorF = partido2.getEquipo2().getNombre();
+				}
+				break;
+			case 'G':
+				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
+					ganadorG = partido2.getEquipo1().getNombre(); 
+				}else {
+					ganadorG = partido2.getEquipo2().getNombre();
+				}
+				break;
+				
+			case 'H':
+				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
+					ganadorH = partido2.getEquipo1().getNombre(); 
+				}else {
+					ganadorH = partido2.getEquipo2().getNombre();
+				}
+				break;
+				
 			}			
 			
 		}
 		
-		for (Partido partido : todos) {
-						
-		}
+	}
+	
+	public static void primeroYsegundo (Partido partido) {
 		
 	}
 	
-	public static LinkedList<Pais> octavos1(){
+	public static LinkedList<Partido> octavos(){
 		LinkedList<Pais> octavosUno = new LinkedList<Pais>();
-		
-		return octavos1();
+		return octavos();
 	}
 	
-	public static LinkedList<Pais> octavos2(){
-		LinkedList<Pais> octavosDos = new LinkedList<Pais>();
-		
-		return octavos2();
+	
+	public static LinkedList<Partido> cuartos(){
+		LinkedList<Pais> cuartosUno = new LinkedList<Pais>();
+		return cuartos();
 	}
+	
+	
 	
 	public static void buscarPartidos() {
 		boolean encontrado = false; 
