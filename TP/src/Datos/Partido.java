@@ -16,8 +16,6 @@ public class Partido {
 		this.duracion = duracion;
 	}
 
-	
-
 	public Pais getEquipo1() {
 		return equipo1;
 	}

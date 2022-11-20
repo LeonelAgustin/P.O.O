@@ -7,11 +7,11 @@ public class Pais {
 	private int goles;
 	private boolean clasificado;
 	private char grupo;
-	private int puntos = 3;
-	private int posicion=0;
 	//private int resultado;//cantidad de goles
 	private Equipo representante;
-	
+	private int puntos = 0;// suma 1 si gana si pierde no suma
+	private int posicion=0;//primero o segundos
+
 	public Pais(String nombre, int goles, boolean clasificado, char grupo, Equipo representante) {
 		super();
 		this.nombre = nombre;

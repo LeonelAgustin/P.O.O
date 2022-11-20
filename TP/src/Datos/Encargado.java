@@ -31,7 +31,46 @@ public class Encargado {
 		return "Encargado [id_encargado=" + id_encargado + ", nombre=" + nombre + "]";
 	}
 	
+	public static LinkedList<Pais> paises(){
+		LinkedList<Pais> todosPaises = new LinkedList<Pais>();
+		/*Pais qatar = 	new Pais("Qatar",1,false,'A',new Equipo("QFA",4));
+		Pais ecuador = 	new Pais("Ecuador",2,true,'A',new Equipo("ECU",5));
+		Pais senegal = 	new Pais("Senegal",3,false,'A',new Equipo("SNG",4));
+		Pais paisesBajos = new Pais("P.Bajos",4,false,'A',new Equipo("PBS",4));
+		Pais inglaterra = new Pais("Inglaterra",5,false,'B',new Equipo("ING",4));
+		Pais iran = 	new Pais("Iran",0,true,'B',new Equipo("IRN",5));
+		Pais estadosUnidos = new Pais("EstadosUnidos",1,false,'B',new Equipo("EEUU",4));
+		Pais gales = 	new Pais("Gales",2,false,'B',new Equipo("GLS",4));
+		Pais argentina = new Pais("Argentina",3,false,'C',new Equipo("ARG",4));
+		Pais arabiaSaudita = new Pais("Arabia.s",4,true,'C',new Equipo("ARS",5));
+		Pais mexico = 	new Pais("Mexico",5,false,'C',new Equipo("MEX",4));
+		Pais polonia = 	new Pais("Polonia",0,false,'C',new Equipo("PLN",4));
+		Pais francia = 	new Pais("Francia",1,false,'D',new Equipo("FRN",4));
+		Pais australia = new Pais("Australia",2,false,'D',new Equipo("AUS",4));
+		Pais dinamarca = new Pais("Dinamarca",3,false,'D',new Equipo("DNM",4));
+		Pais tunez = 	new Pais("Tunez",4,false,'D',new Equipo("TNZ",4));
+		Pais espana = 	new Pais("España",5,false,'E',new Equipo("ESP",4));
+		Pais costaRica = new Pais("CostaRica",0,false,'E',new Equipo("CTR",4));
+		Pais alemania = new Pais("Alemania",1,false,'E',new Equipo("ALM",4));
+		Pais japon = 	new Pais("Japon",2,false,'E',new Equipo("JPN",4));
+		Pais belgica = 	new Pais("Belgica",3,false,'F',new Equipo("BLG",4));
+		Pais canada = 	new Pais("Canada",4,false,'F',new Equipo("CND",4));
+		Pais marruecos = new Pais("Marruecos",5,false,'F',new Equipo("MRC",4));
+		Pais croacia = 	new Pais("Croacia",0,false,'F',new Equipo("CRC",4));
+		Pais brasil = 	new Pais("Brasil",1,false,'G',new Equipo("BRS",4));
+		Pais serbia = 	new Pais("Serbia",2,false,'G',new Equipo("SRB",4));
+		Pais suiza = 	new Pais("Suiza",3,false,'G',new Equipo("SZA",4));
+		Pais camerun = 	new Pais("Camerun",4,false,'G',new Equipo("CMR",4));
+		Pais portugal = new Pais("Portugal",5,false,'H',new Equipo("PRT",4));
+		Pais ghana = 	new Pais("Ghana",0,false,'H',new Equipo("GHN",4));
+		Pais uruguay = 	new Pais("Uruguay",1,false,'H',new Equipo("URG",4));
+		Pais coreaSur = new Pais("Corea.s",2,false,'H',new Equipo("CRS",4));
+		 */
+		return todosPaises;
+	}
+	
 	public static void buscarTabla() {//buscar una tabla
+		
 		LinkedList<Partido> todos = General();
 		String tabla = "";
 		String grupo = JOptionPane.showInputDialog("ingrese la letra del grupo para buscar partidos de ese grupo");
@@ -44,6 +83,95 @@ public class Encargado {
 		JOptionPane.showMessageDialog(null, "grupo "+grupo+"\n"+tabla);
 	}
 	
+	public static void jugarPartidos() {
+		int ganadorA = 0;
+		int ganadorB = 0;
+		int ganadorC = 0;
+		int ganadorD = 0;
+		int ganadorE = 0;
+		int ganadorF = 0;
+		int ganadorG = 0;
+		int ganadorH = 0;
+		
+		LinkedList<Pais> paises = paises();
+		LinkedList<Partido> todos = General();
+		for (Partido partido : todos) {// juego los partidos cambiando los goles y agregandolos al lista de paises
+				partido.getEquipo1().setGoles((int)(Math.random()*5+1));
+				partido.getEquipo2().setGoles((int)(Math.random()*5+1));
+				paises.add(partido.getEquipo1());
+				paises.add(partido.getEquipo2());
+				
+				if (partido.getEquipo1().getGoles() > partido.getEquipo2().getGoles()) {
+					partido.getEquipo1().setPuntos(partido.getEquipo1().getGoles()+1); 
+				}else {
+					partido.getEquipo2().setPuntos(partido.getEquipo2().getGoles()+1);
+				}
+		}
+		// primero dependiendo de quien gano en cada partido se le suma los puntos
+		
+		// voy a guardar el index del pais que tiene mas puntos y asi saco el ganador de cada grupo
+		for (int i = 0; i < paises.size(); i++) {
+			
+			// paises.get(i) devuelve el Pais en la posicion i, del mismo elemento tomo el aributo Grupo para solo tomar los del grupo A
+			switch (paises.get(i).getGrupo()) {
+			case 'A':
+				if (paises.get(i).getPuntos() > ganadorA) {// si los puntos del pais en la posicion i es mayor a ganadorA guardo su posicion
+					ganadorA = paises.indexOf(paises.get(i));
+				}// alfinal me voy a quedar con el pais que tuvo mas puntos
+				break;
+				
+			case 'B':
+				if (paises.get(i).getPuntos() > ganadorB) {// si los puntos del pais en la posicion i es mayor a ganadorA guardo su posicion
+					ganadorB = paises.indexOf(paises.get(i));
+				}
+				break;
+				
+			case 'C':
+				if (paises.get(i).getPuntos() > ganadorC) {// si los puntos del pais en la posicion i es mayor a ganadorA guardo su posicion
+					ganadorC = paises.indexOf(paises.get(i));
+				}
+				break;
+				
+			case 'D':
+				if (paises.get(i).getPuntos() > ganadorD) {// si los puntos del pais en la posicion i es mayor a ganadorA guardo su posicion
+					ganadorE = paises.indexOf(paises.get(i));
+				}
+				break;
+			case 'E':
+				if (paises.get(i).getPuntos() > ganadorE) {// si los puntos del pais en la posicion i es mayor a ganadorA guardo su posicion
+					ganadorE = paises.indexOf(paises.get(i));
+				}
+				break;
+				
+			case 'F':
+				if (paises.get(i).getPuntos() > ganadorF) {// si los puntos del pais en la posicion i es mayor a ganadorA guardo su posicion
+					ganadorF = paises.indexOf(paises.get(i));
+				}
+				break;
+			case 'G':
+				if (paises.get(i).getPuntos() > ganadorG) {// si los puntos del pais en la posicion i es mayor a ganadorA guardo su posicion
+					ganadorG = paises.indexOf(paises.get(i));
+				}
+				break;
+				
+			case 'H':
+				if (paises.get(i).getPuntos() > ganadorH) {// si los puntos del pais en la posicion i es mayor a ganadorA guardo su posicion
+					ganadorH = paises.indexOf(paises.get(i));
+				}
+				break;
+			}
+		}
+		String ganadores = "grupo A:"+paises.get(ganadorA).getNombre()+
+				"\n"+"grupo B:"+paises.get(ganadorB).getNombre()+
+				"\n"+"grupo C:"+paises.get(ganadorC).getNombre()+
+				"\n"+"grupo D:"+paises.get(ganadorD).getNombre()+
+				"\n"+"grupo E:"+paises.get(ganadorE).getNombre()+
+				"\n"+"grupo F:"+paises.get(ganadorF).getNombre()+
+				"\n"+"grupo G:"+paises.get(ganadorG).getNombre()+
+				"\n"+"grupo H:"+paises.get(ganadorH).getNombre();
+		JOptionPane.showMessageDialog(null, "Ganados fase de grupos:\n"+ganadores);
+	}
+	/*
 	public static void elegirOctavos () {
 		LinkedList<Partido> todos = General();
 		for (Partido partido : todos) {//goles aleatorios para cada partido
@@ -54,33 +182,24 @@ public class Encargado {
 		String tablaDos = "";
 		LinkedList<Pais> primeros = new LinkedList<Pais>();
 		LinkedList<Pais> segundos = new LinkedList<Pais>();
-		String ganadorA = "";
-		String ganadorB = "";
-		String ganadorC = "";
-		String ganadorD = "";
-		String ganadorE = "";
-		String ganadorF = "";
-		String ganadorG = "";
-		String ganadorH = "";
+	
 		
 		//Pais auxiliar = new Pais("aux",0,false,'Z',new Equipo("OOO",0));
 		
 		for (Partido partido : todos) {
-			
+			// nombre, goles, clasifico, grupo, equipo
 			
 			if (partido.getEquipo1().getGoles() == 0) {
 				
 			} else if(partido.getEquipo1().getGoles() == 0){
 
 			}else if (partido.getEquipo1().getGoles() >= partido.getEquipo2().getGoles()) {
-				partido.getEquipo1().setPuntos(partido.getEquipo1().getPuntos()-1);
-				
+				// se uma un punto al ganar
+				partido.getEquipo1().setPuntos(partido.getEquipo1().getPuntos()+1);				
 				partido.getEquipo1().setPosicion(1);
 				partido.getEquipo2().setPosicion(2);
 			}else {
-				partido.getEquipo2().setPuntos(partido.getEquipo2().getPuntos()-1);
-				
-				ganadorA = partido.getEquipo2().getNombre();
+				 // no suma puntos porque perdio				
 				partido.getEquipo1().setPosicion(2);
 				partido.getEquipo2().setPosicion(1);
 			}
@@ -88,84 +207,16 @@ public class Encargado {
 		
 		for (Partido partido2 : todos) {
 			
-			switch (partido2.getEquipo1().getGrupo()) {
-			case 'A':
-				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
-					 
-					partido2.getEquipo1().setPosicion(1);
-					partido2.getEquipo2().setPosicion(2);
-				}else {
-					ganadorA = partido2.getEquipo2().getNombre();
-					partido2.getEquipo1().setPosicion(2);
-					partido2.getEquipo2().setPosicion(1);
-				}
-				
-				break;
-				
-			case 'B':
-				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
-					ganadorB = partido2.getEquipo1().getNombre(); 
-				}else {
-					ganadorB = partido2.getEquipo2().getNombre();
-				}
-				break;
-				
-			case 'C':
-				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
-					ganadorC = partido2.getEquipo1().getNombre(); 
-				}else {
-					ganadorC = partido2.getEquipo2().getNombre();
-				}
-				break;
-				
-			case 'D':
-				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
-					ganadorD = partido2.getEquipo1().getNombre(); 
-				}else {
-					ganadorD = partido2.getEquipo2().getNombre();
-				}
-				break;
-			case 'E':
-				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
-					ganadorE = partido2.getEquipo1().getNombre(); 
-				}else {
-					ganadorE = partido2.getEquipo2().getNombre();
-				}
-				break;
-				
-			case 'F':
-				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
-					ganadorF = partido2.getEquipo1().getNombre(); 
-				}else {
-					ganadorF = partido2.getEquipo2().getNombre();
-				}
-				break;
-			case 'G':
-				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
-					ganadorG = partido2.getEquipo1().getNombre(); 
-				}else {
-					ganadorG = partido2.getEquipo2().getNombre();
-				}
-				break;
-				
-			case 'H':
-				if (partido2.getEquipo1().getGoles() >= partido2.getEquipo2().getGoles()) {
-					ganadorH = partido2.getEquipo1().getNombre(); 
-				}else {
-					ganadorH = partido2.getEquipo2().getNombre();
-				}
-				break;
-				
-			}			
+						
 			
 		}
 		
 	}
-	
+	*/
 	public static void primeroYsegundo (Partido partido) {
 		
 	}
-	
+	/*
 	public static LinkedList<Partido> octavos(){
 		LinkedList<Pais> octavosUno = new LinkedList<Pais>();
 		return octavos();
@@ -175,7 +226,7 @@ public class Encargado {
 	public static LinkedList<Partido> cuartos(){
 		LinkedList<Pais> cuartosUno = new LinkedList<Pais>();
 		return cuartos();
-	}
+	}*/
 	
 	
 	
@@ -218,11 +269,11 @@ public class Encargado {
 		
 		LinkedList<Partido> todos = new LinkedList<Partido>();
 		Partido partido1 = new Partido (1,new Pais("Qatar",1,false,'A',new Equipo("QFA",4)),	new Pais("Ecuador",3,true,'A',new Equipo("ECU",5)),100);
-		Partido partido2 = new Partido (1,new Pais("Senegal",1,false,'A',new Equipo("SNG",4)),new Pais("P.Bajos",3,true,'A',new Equipo("PBS",5)),100);
+		Partido partido2 = new Partido (1,new Pais("Senegal",1,false,'A',new Equipo("SNG",4)),	new Pais("P.Bajos",3,true,'A',new Equipo("PBS",5)),100);
 		Partido partido3 = new Partido (1,new Pais("Qatar",1,false,'A',new Equipo("QFA",4)),	new Pais("Senegal",3,true,'A',new Equipo("SNG",5)),100);
-		Partido partido4 = new Partido (1,new Pais("P.Bajos",1,false,'A',new Equipo("PBS",4)),new Pais("Ecuador",3,true,'A',new Equipo("ECU",5)),100);
+		Partido partido4 = new Partido (1,new Pais("P.Bajos",1,false,'A',new Equipo("PBS",4)),	new Pais("Ecuador",3,true,'A',new Equipo("ECU",5)),100);
 		Partido partido5 = new Partido (1,new Pais("P.Bajos",3,true,'A',new Equipo("PBS",5)),	new Pais("Qatar",1,false,'A',new Equipo("QFA",4)),100);
-		Partido partido6 = new Partido (1,new Pais("Ecuador",1,false,'A',new Equipo("ECU",4)),new Pais("Senegal",3,true,'A',new Equipo("SNG",5)),100);
+		Partido partido6 = new Partido (1,new Pais("Ecuador",1,false,'A',new Equipo("ECU",4)),	new Pais("Senegal",3,true,'A',new Equipo("SNG",5)),100);
 		todos.add(partido1);
 		todos.add(partido2);
 		todos.add(partido3);

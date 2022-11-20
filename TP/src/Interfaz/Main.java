@@ -25,7 +25,7 @@ public class Main {
 		
 		LinkedList<Partido> todos = pablo.General();
 		
-		int menu = Integer.parseInt(JOptionPane.showInputDialog("\n1-ingresar partido a la base de datos\n2-Buscar y/o cambiar datos de un partido\n3-jugar octavos de final"));
+		int menu = Integer.parseInt(JOptionPane.showInputDialog("\n1-ingresar partido a la base de datos\n2-Buscar y/o cambiar datos de un partido\n3-jugar fase de grupos"));
 		
 		switch (menu) {
 		case 1:
@@ -43,9 +43,9 @@ public class Main {
 			break;
 		case 3:
 			// jugar partidos
-			
+			pablo.jugarPartidos();
 			// obentener octavos, cuartos, semis y final
-			String octavo = JOptionPane.showInputDialog("Octavos jugados, ingrese el nombre de u pais para ver si clasifico");
+			//String octavo = JOptionPane.showInputDialog("Octavos jugados, ingrese el nombre de u pais para ver si clasifico");
 			break;
 		}
 		
