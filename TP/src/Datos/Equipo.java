@@ -26,8 +26,5 @@ public class Equipo {
 		return "Equipo [nombre=" + nombreE + ", goles=" + goles + "]";
 	}
 	
-	public void cambiarDatos() {
-		
-	}
 	
 }

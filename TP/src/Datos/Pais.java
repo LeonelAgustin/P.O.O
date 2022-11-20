@@ -122,12 +122,9 @@ public class Pais {
 		case 5:
 			break;
 		case 6:
-			representante.cambiarDatos();
+			
 			break;
 		}
-		
-		
-		
 		
 	}
 	

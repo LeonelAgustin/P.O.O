@@ -101,7 +101,7 @@ public class Encargado {
 				paises.add(partido.getEquipo1());
 				paises.add(partido.getEquipo2());
 				
-				if (partido.getEquipo1().getGoles() > partido.getEquipo2().getGoles()) {
+				if (partido.getEquipo1().getGoles() >= partido.getEquipo2().getGoles()) {
 					partido.getEquipo1().setPuntos(partido.getEquipo1().getGoles()+1); 
 				}else {
 					partido.getEquipo2().setPuntos(partido.getEquipo2().getGoles()+1);
@@ -134,7 +134,7 @@ public class Encargado {
 				
 			case 'D':
 				if (paises.get(i).getPuntos() > ganadorD) {// si los puntos del pais en la posicion i es mayor a ganadorA guardo su posicion
-					ganadorE = paises.indexOf(paises.get(i));
+					ganadorD = paises.indexOf(paises.get(i));
 				}
 				break;
 			case 'E':
@@ -160,15 +160,15 @@ public class Encargado {
 				}
 				break;
 			}
-		}
+		}//retorno el nombre del pais en la posicion del ganador de cada tabla que guarde antes
 		String ganadores = "grupo A:"+paises.get(ganadorA).getNombre()+
-				"\n"+"grupo B:"+paises.get(ganadorB).getNombre()+
-				"\n"+"grupo C:"+paises.get(ganadorC).getNombre()+
-				"\n"+"grupo D:"+paises.get(ganadorD).getNombre()+
-				"\n"+"grupo E:"+paises.get(ganadorE).getNombre()+
-				"\n"+"grupo F:"+paises.get(ganadorF).getNombre()+
-				"\n"+"grupo G:"+paises.get(ganadorG).getNombre()+
-				"\n"+"grupo H:"+paises.get(ganadorH).getNombre();
+							"\n"+"grupo B: "+paises.get(ganadorB).getNombre()+
+							"\n"+"grupo C: "+paises.get(ganadorC).getNombre()+
+							"\n"+"grupo D: "+paises.get(ganadorD).getNombre()+
+							"\n"+"grupo E: "+paises.get(ganadorE).getNombre()+
+							"\n"+"grupo F: "+paises.get(ganadorF).getNombre()+
+							"\n"+"grupo G: "+paises.get(ganadorG).getNombre()+
+							"\n"+"grupo H: "+paises.get(ganadorH).getNombre();
 		JOptionPane.showMessageDialog(null, "Ganados fase de grupos:\n"+ganadores);
 	}
 	/*
@@ -213,9 +213,7 @@ public class Encargado {
 		
 	}
 	*/
-	public static void primeroYsegundo (Partido partido) {
-		
-	}
+	
 	/*
 	public static LinkedList<Partido> octavos(){
 		LinkedList<Pais> octavosUno = new LinkedList<Pais>();
