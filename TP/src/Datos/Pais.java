@@ -9,18 +9,19 @@ public class Pais {
 	private char grupo;
 	//private int resultado;//cantidad de goles
 	private Equipo representante;
-	private int puntos = 0;// suma 1 si gana si pierde no suma
-	private int posicion=0;//primero o segundos
+	private int puntos;// suma 1 si gana si pierde no suma
+	private int posicion;//primero o segundos
 
-	public Pais(String nombre, int goles, boolean clasificado, char grupo, Equipo representante) {
+	public Pais(String nombre, int goles, boolean clasificado, char grupo, Equipo representante, int puntos,
+			int posicion) {
 		super();
 		this.nombre = nombre;
 		this.goles = goles;
 		this.clasificado = clasificado;
 		this.grupo = grupo;
 		this.representante = representante;
-		this.posicion=0;
-		this.puntos = 3;
+		this.puntos = puntos;
+		this.posicion = posicion;
 	}
 
 	public int getPuntos() {
@@ -102,7 +103,7 @@ public class Pais {
 		return "Pais [nombre=" + nombre + ", goles=" + goles + ", clasificado=" + clasificado + ", grupo=" + grupo
 				+ ", representante=" + representante + "]";
 	}
-
+/*
 	public void cambiarDatos() {
 		int b = Integer.parseInt(JOptionPane.showInputDialog("que dato del pais desea cambiar\n1-nombre\n2-goles\n3-clasificado\n4-grupo\n5-resultado\n6-representante"));
 		
@@ -126,6 +127,6 @@ public class Pais {
 			break;
 		}
 		
-	}
+	}*/
 	
 }

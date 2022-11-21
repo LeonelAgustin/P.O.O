@@ -43,7 +43,9 @@ public class Main {
 			break;
 		case 3:
 			// jugar partidos
-			pablo.jugarPartidos();
+			
+			pablo.primerosYsegundos();
+			
 			// obentener octavos, cuartos, semis y final
 			//String octavo = JOptionPane.showInputDialog("Octavos jugados, ingrese el nombre de u pais para ver si clasifico");
 			break;
