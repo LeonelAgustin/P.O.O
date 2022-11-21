@@ -1,6 +1,5 @@
 package Datos;
 
-import java.awt.Container;
 import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
@@ -32,8 +31,7 @@ public class Encargado {
 	}
 	
 	
-	
-	public static void buscarTabla() {//buscar una tabla
+	public void buscarTabla() {//buscar una tabla
 		
 		LinkedList<Partido> todos = General();
 		String tabla = "";
@@ -47,8 +45,79 @@ public class Encargado {
 		JOptionPane.showMessageDialog(null, "grupo "+grupo+"\n"+tabla);
 	}
 	
-	public static void primerosYsegundos() {
-		LinkedList<Pais> paises1 = Paises();
+	public void primerosYsegundos() {
+		
+		Pais qatar = 	new Pais("Qatar",false,'A',new Equipo("QFA",4),0,0);
+		Pais ecuador = 	new Pais("Ecuador",true,'A',new Equipo("ECU",5),0,0);
+		Pais senegal = 	new Pais("Senegal",false,'A',new Equipo("SNG",4),0,0);
+		Pais paisesBajos = new Pais("P.Bajos",false,'A',new Equipo("PBS",4),0,0);
+		
+		Pais inglaterra = new Pais("Inglaterra",false,'B',new Equipo("ING",4),0,0);
+		
+		Pais iran = 	new Pais("Iran",true,'B',new Equipo("IRN",5),0,0);
+		Pais estadosUnidos = new Pais("EstadosUnidos",false,'B',new Equipo("EEUU",4),0,0);
+		Pais gales = 	new Pais("Gales",false,'B',new Equipo("GLS",4),0,0);
+		Pais argentina = new Pais("Argentina",false,'C',new Equipo("ARG",4),0,0);
+		Pais arabiaSaudita = new Pais("Arabia.s",true,'C',new Equipo("ARS",5),0,0);
+		Pais mexico = 	new Pais("Mexico",false,'C',new Equipo("MEX",4),0,0);
+		Pais polonia = 	new Pais("Polonia",false,'C',new Equipo("PLN",4),0,0);
+		Pais francia = 	new Pais("Francia",false,'D',new Equipo("FRN",4),0,0);
+		Pais australia = new Pais("Australia",false,'D',new Equipo("AUS",4),0,0);
+		Pais dinamarca = new Pais("Dinamarca",false,'D',new Equipo("DNM",4),0,0);
+		Pais tunez = 	new Pais("Tunez",false,'D',new Equipo("TNZ",4),0,0);
+		Pais espana = 	new Pais("Espania",false,'E',new Equipo("ESP",4),0,0);
+		Pais costaRica = new Pais("CostaRica",false,'E',new Equipo("CTR",4),0,0);
+		Pais alemania = new Pais("Alemania",false,'E',new Equipo("ALM",4),0,0);
+		Pais japon = 	new Pais("Japon",false,'E',new Equipo("JPN",4),0,0);
+		
+		Pais belgica = 	new Pais("Belgica",false,'F',new Equipo("BLG",4),0,0);
+		
+		Pais canada = 	new Pais("Canada",false,'F',new Equipo("CND",4),0,0);
+		Pais marruecos = new Pais("Marruecos",false,'F',new Equipo("MRC",4),0,0);
+		Pais croacia = 	new Pais("Croacia",false,'F',new Equipo("CRC",4),0,0);
+		Pais brasil = 	new Pais("Brasil",false,'G',new Equipo("BRS",4),0,0);
+		Pais serbia = 	new Pais("Serbia",false,'G',new Equipo("SRB",4),0,0);
+		Pais suiza = 	new Pais("Suiza",false,'G',new Equipo("SZA",4),0,0);
+		Pais camerun = 	new Pais("Camerun",false,'G',new Equipo("CMR",4),0,0);
+		Pais portugal = new Pais("Portugal",false,'H',new Equipo("PRT",4),0,0);
+		Pais ghana = 	new Pais("Ghana",false,'H',new Equipo("GHN",4),0,0);
+		Pais uruguay = 	new Pais("Uruguay",false,'H',new Equipo("URG",4),0,0);
+		Pais coreaSur = new Pais("Corea.s",false,'H',new Equipo("CRS",4),0,0);
+		LinkedList<Pais> paises1 = new LinkedList<Pais>();
+		
+		paises1.add(qatar);
+		paises1.add(ecuador);
+		paises1.add(senegal);
+		paises1.add(paisesBajos);
+		paises1.add(inglaterra);
+		paises1.add(iran);
+		paises1.add(estadosUnidos);
+		paises1.add(argentina);
+		paises1.add(arabiaSaudita);
+		paises1.add(mexico);
+		paises1.add(polonia);
+		paises1.add(francia);
+		paises1.add(australia);
+		paises1.add(dinamarca);
+		paises1.add(tunez);
+		paises1.add(espana);
+		paises1.add(costaRica);
+		paises1.add(alemania);
+		paises1.add(japon);
+		paises1.add(belgica);
+		paises1.add(canada);
+		paises1.add(marruecos);
+		paises1.add(croacia);
+		paises1.add(brasil);
+		paises1.add(serbia);
+		paises1.add(suiza);
+		paises1.add(camerun);
+		paises1.add(portugal);
+		paises1.add(ghana);
+		paises1.add(uruguay);
+		paises1.add(coreaSur);
+		
+		
 		int primeroA = 0;
 		int primeroB = 0;
 		int primeroC = 0;
@@ -60,14 +129,23 @@ public class Encargado {
 		
 		LinkedList<Partido> todos = General();
 		
-		for (Pais pais : paises1) {
-			pais.setPuntos((int)(Math.random()*4+1));
+		for (int i = 0; i < todos.size(); i++) {
+			
+			todos.get(i).getEquipo1().setGoles((int)(Math.random()*4+1));
 		}
 		
+		for (int i = 0; i < paises1.size(); i++) {
+			paises1.set(i, paises1.get(i)).setGoles(((int)(Math.random()*4+1)));
+		}		
+		
+		for (Pais pais : paises1) {
+			//juego los partidos cambiando los goles y agregandolos al lista de paises
+			paises1.set(paises1.indexOf(pais), pais).setGoles(((int)(Math.random()*4+1)));
+			pais.setGoles(((int)(Math.random()*4+1)));
+			pais.setPuntos(((int)(Math.random()*4+1)));
+		}
+		/*		
 		for (Partido partido : todos) {
-			// juego los partidos cambiando los goles y agregandolos al lista de paises
-				partido.getEquipo1().setGoles((int)(Math.random()*4+1));
-				partido.getEquipo2().setGoles((int)(Math.random()*4+1));
 				
 				if (paises1.contains(partido.getEquipo1())==false) {
 					paises1.add(partido.getEquipo1());
@@ -75,22 +153,32 @@ public class Encargado {
 				if(paises1.contains(partido.getEquipo2())==false){
 					paises1.add(partido.getEquipo2());
 				}				
-		}
+		}*/
 		
 		for (Partido partido : todos) {
 			if (partido.getEquipo1().getGoles() > partido.getEquipo2().getGoles()) {
-				partido.getEquipo1().setPuntos(partido.getEquipo1().getPuntos()+1);//sumo unpunto al pais que gano
+				partido.getEquipo1().setPuntos((partido.getEquipo1().getPuntos())+1);//sumo un punto al pais que gano
 				partido.getEquipo1().setPosicion(1);// 1 gano el partido
 				partido.getEquipo2().setPosicion(2);// 2 perdio el partido
 				
 			}else {
-				partido.getEquipo2().setPuntos(partido.getEquipo2().getPuntos()+1);
+				partido.getEquipo2().setPuntos((partido.getEquipo2().getPuntos())+1);
 				partido.getEquipo1().setPosicion(2);
 				partido.getEquipo2().setPosicion(1);
 			}
 		}
-		// primero dependiendo de quien gano en cada partido se le suma los puntos
 		
+		
+		
+		for (int i = 0; i < todos.size(); i++) {
+			if (todos.get(i).getEquipo1().getGrupo()=='A' || todos.get(i).getEquipo2().getGrupo()== 'A' && todos.get(i).getEquipo1().getPuntos() > primeroA || todos.get(i).getEquipo2().getPuntos() > primeroA) {
+				
+			} else if(todos.get(i).getEquipo2().getGrupo()=='A' || todos.get(i).getEquipo2().getGrupo()== 'A' && todos.get(i).getEquipo1().getPuntos() > primeroB ) {
+				
+			}
+		}
+		
+		// primero dependiendo de quien gano en cada partido se le suma los puntos
 		// voy a guardar el index del pais que tiene mas puntos y asi saco el ganador de cada grupo
 		for (int i = 0; i < paises1.size(); i++) {
 			// paises.get(i) devuelve el Pais en la posicion i, del mismo elemento tomo el aributo Grupo para solo tomar los del grupo A
@@ -141,18 +229,17 @@ public class Encargado {
 				}
 				break;
 			}
-		}//imprimo el nombre del pais en la posicion del ganador de cada tabla que guarde antes
+		}
+		//imprimo el nombre del pais en la posicion del ganador de cada tabla que guarde antes*/
 		
-		String primerosGanadores = "PRIMEROS\ngrupo A:"+paises1.get(primeroA).getNombre()+
-							"\n"+"grupo B: "+paises1.get(primeroB).getNombre()+
-							"\n"+"grupo C: "+paises1.get(primeroC).getNombre()+
-							"\n"+"grupo D: "+paises1.get(primeroD).getNombre()+
-							"\n"+"grupo E: "+paises1.get(primeroE).getNombre()+
-							"\n"+"grupo F: "+paises1.get(primeroF).getNombre()+
-							"\n"+"grupo G: "+paises1.get(primeroG).getNombre()+
-							"\n"+"grupo H: "+paises1.get(primeroH).getNombre();
-		
-		JOptionPane.showMessageDialog(null, primerosGanadores);
+		JOptionPane.showMessageDialog(null, "PRIMEROS\ngrupo A: "+paises1.get(primeroA).getNombre()+
+				"\n"+"grupo B: "+paises1.get(primeroB).getNombre()+
+				"\n"+"grupo C: "+paises1.get(primeroC).getNombre()+
+				"\n"+"grupo D: "+paises1.get(primeroD).getNombre()+
+				"\n"+"grupo E: "+paises1.get(primeroE).getNombre()+
+				"\n"+"grupo F: "+paises1.get(primeroF).getNombre()+
+				"\n"+"grupo G: "+paises1.get(primeroG).getNombre()+
+				"\n"+"grupo H: "+paises1.get(primeroH).getNombre());
 		
 		paises1.remove(primeroA);
 		paises1.remove(primeroB);
@@ -163,7 +250,7 @@ public class Encargado {
 		paises1.remove(primeroG);
 		paises1.remove(primeroH);
 		// remuevo los primeros ganadores para sacar los segundos de cada grupo
-			/*
+		
 		int segundoA = 0;
 		int segundoB = 0;
 		int segundoC = 0;
@@ -172,65 +259,75 @@ public class Encargado {
 		int segundoF = 0;
 		int segundoG = 0;
 		int segundoH = 0;
-
+		
+		
 		for (int i = 0; i < paises1.size(); i++) {
 			switch (paises1.get(i).getGrupo()) {
 			case 'A':
 				if (paises1.get(i).getPuntos() > segundoA) {
 					segundoA = paises1.indexOf(paises1.get(i));
+					
 				}
 				break;
 			case 'B':
 				if (paises1.get(i).getPuntos() > segundoB) {
 					segundoB = paises1.indexOf(paises1.get(i));
+					paises1.remove(segundoB);
 				}
 				break;
 				
 			case 'C':
 				if (paises1.get(i).getPuntos() > segundoC) {
 					segundoC = paises1.indexOf(paises1.get(i));
+					paises1.remove(segundoC);
 				}
 				break;
 				
 			case 'D':
 				if (paises1.get(i).getPuntos() > segundoD) {
 					segundoD = paises1.indexOf(paises1);
+					paises1.remove(segundoD);
 				}
 				break;
 			case 'E':
 				if (paises1.get(i).getPuntos() > segundoE) {
 					segundoE = paises1.indexOf(paises1.get(i));
+					paises1.remove(segundoE);
 				}
 				break;
 				
 			case 'F':
 				if (paises1.get(i).getPuntos() > segundoF) {
 					segundoF = paises1.indexOf(paises1.get(i));
+					paises1.remove(segundoF);
 				}
 				break;
 			case 'G':
 				if (paises1.get(i).getPuntos() > segundoG) {
 					segundoG = paises1.indexOf(paises1.get(i));
+					paises1.remove(segundoG);
 				}
 				break;
 				
 			case 'H':
 				if (paises1.get(i).getPuntos() > segundoH) {
 					segundoH = paises1.indexOf(paises1.get(i));
+					paises1.remove(segundoH);
 				}
 				break;
 			}
 		}
-		/*String segundosGanadores = "SEGUNDOS\ngrupo A:"+
-				paises1.get(segundoA).getNombre()+
-		"\n"+"grupo B: "+paises1.get(segundoB).getNombre()+
-		"\n"+"grupo C: "+paises1.get(segundoC).getNombre()+
-		"\n"+"grupo D: "+paises1.get(segundoD).getNombre()+
-		"\n"+"grupo E: "+paises1.get(segundoE).getNombre()+
-		"\n"+"grupo F: "+paises1.get(segundoF).getNombre()+
-		"\n"+"grupo G: "+paises1.get(segundoG).getNombre()+
-		"\n"+"grupo H: "+paises1.get(segundoH).getNombre();
-		JOptionPane.showMessageDialog(null,segundosGanadores);*/
+		String segundosGanadores = "SEGUNDOS\ngrupo A:"+
+				paises1.get(primeroA).getNombre()+
+		"\n"+"grupo B: "+paises1.get(primeroB-1).getNombre()+
+		"\n"+"grupo C: "+paises1.get(primeroC-1).getNombre()+
+		"\n"+"grupo D: "+paises1.get(primeroD-1).getNombre()+
+		"\n"+"grupo E: "+paises1.get(primeroE-1).getNombre()+
+		"\n"+"grupo F: "+paises1.get(primeroF-1).getNombre()+
+		"\n"+"grupo G: "+paises1.get(primeroG-1).getNombre()+
+		"\n"+"grupo H: "+paises1.get(primeroH-1).getNombre();
+		JOptionPane.showMessageDialog(null,segundosGanadores);
+		
 	}
 	
 	
@@ -317,146 +414,116 @@ public class Encargado {
 		
 	}
 
-	public static LinkedList<Pais> Paises(){
-		LinkedList<Pais> todosPaises = new LinkedList<Pais>();
-		// los goles y puntos no se estan modificando 
-		Pais qatar = 	new Pais("Qatar",1,false,'A',new Equipo("QFA",4),0,0);
-		Pais ecuador = 	new Pais("Ecuador",2,true,'A',new Equipo("ECU",5),0,0);
-		Pais senegal = 	new Pais("Senegal",3,false,'A',new Equipo("SNG",4),0,0);
-		Pais paisesBajos = new Pais("P.Bajos",4,false,'A',new Equipo("PBS",4),0,0);
-		Pais inglaterra = new Pais("Inglaterra",5,false,'B',new Equipo("ING",4),0,0);
-		Pais iran = 	new Pais("Iran",0,true,'B',new Equipo("IRN",5),0,0);
-		Pais estadosUnidos = new Pais("EstadosUnidos",1,false,'B',new Equipo("EEUU",4),0,0);
-		Pais gales = 	new Pais("Gales",2,false,'B',new Equipo("GLS",4),0,0);
-		Pais argentina = new Pais("Argentina",3,false,'C',new Equipo("ARG",4),0,0);
-		Pais arabiaSaudita = new Pais("Arabia.s",4,true,'C',new Equipo("ARS",5),0,0);
-		Pais mexico = 	new Pais("Mexico",5,false,'C',new Equipo("MEX",4),0,0);
-		Pais polonia = 	new Pais("Polonia",0,false,'C',new Equipo("PLN",4),0,0);
-		Pais francia = 	new Pais("Francia",1,false,'D',new Equipo("FRN",4),0,0);
-		Pais australia = new Pais("Australia",2,false,'D',new Equipo("AUS",4),0,0);
-		Pais dinamarca = new Pais("Dinamarca",3,false,'D',new Equipo("DNM",4),0,0);
-		Pais tunez = 	new Pais("Tunez",4,false,'D',new Equipo("TNZ",4),0,0);
-		Pais espana = 	new Pais("Espania",5,false,'E',new Equipo("ESP",4),0,0);
-		Pais costaRica = new Pais("CostaRica",0,false,'E',new Equipo("CTR",4),0,0);
-		Pais alemania = new Pais("Alemania",1,false,'E',new Equipo("ALM",4),0,0);
-		Pais japon = 	new Pais("Japon",2,false,'E',new Equipo("JPN",4),0,0);
-		Pais belgica = 	new Pais("Belgica",3,false,'F',new Equipo("BLG",4),0,0);
-		Pais canada = 	new Pais("Canada",4,false,'F',new Equipo("CND",4),0,0);
-		Pais marruecos = new Pais("Marruecos",5,false,'F',new Equipo("MRC",4),0,0);
-		Pais croacia = 	new Pais("Croacia",0,false,'F',new Equipo("CRC",4),0,0);
-		Pais brasil = 	new Pais("Brasil",1,false,'G',new Equipo("BRS",4),0,0);
-		Pais serbia = 	new Pais("Serbia",2,false,'G',new Equipo("SRB",4),0,0);
-		Pais suiza = 	new Pais("Suiza",3,false,'G',new Equipo("SZA",4),0,0);
-		Pais camerun = 	new Pais("Camerun",4,false,'G',new Equipo("CMR",4),0,0);
-		Pais portugal = new Pais("Portugal",5,false,'H',new Equipo("PRT",4),0,0);
-		Pais ghana = 	new Pais("Ghana",0,false,'H',new Equipo("GHN",4),0,0);
-		Pais uruguay = 	new Pais("Uruguay",1,false,'H',new Equipo("URG",4),0,0);
-		Pais coreaSur = new Pais("Corea.s",2,false,'H',new Equipo("CRS",4),0,0);
-		
-		return todosPaises;
-	}
+	
 	
 	
 	public static LinkedList<Partido> General(){
 		
 		LinkedList<Partido> todos = new LinkedList<Partido>();
-		Partido partido1 = new Partido (1,new Pais("Qatar",1,false,'A',new Equipo("QFA",4),0,0),	new Pais("Ecuador",(int)(Math.random()*4+1),true,'A',new Equipo("ECU",5),0,0),100);
-		Partido partido2 = new Partido (1,new Pais("Senegal",1,false,'A',new Equipo("SNG",4),0,0),	new Pais("P.Bajos",0,true,'A',new Equipo("PBS",5),0,0),100);
-		Partido partido3 = new Partido (1,new Pais("Qatar",1,false,'A',new Equipo("QFA",4),0,0),	new Pais("Senegal",3,true,'A',new Equipo("SNG",5),0,0),100);
-		Partido partido4 = new Partido (1,new Pais("P.Bajos",1,false,'A',new Equipo("PBS",4),0,0),	new Pais("Ecuador",3,true,'A',new Equipo("ECU",5),0,0),100);
-		Partido partido5 = new Partido (1,new Pais("P.Bajos",3,true,'A',new Equipo("PBS",5),0,0),	new Pais("Qatar",1,false,'A',new Equipo("QFA",4),0,0),100);
-		Partido partido6 = new Partido (1,new Pais("Ecuador",1,false,'A',new Equipo("ECU",4),0,0),	new Pais("Senegal",3,true,'A',new Equipo("SNG",5),0,0),100);
+		Partido partido1 = new Partido (1,new Pais("Qatar",false,'A',new Equipo("QFA",4),0,0),	new Pais("Ecuador",true,'A',new Equipo("ECU",5),0,0),100);
+		Partido partido2 = new Partido (1,new Pais("Senegal",false,'A',new Equipo("SNG",4),0,0),	new Pais("P.Bajos",true,'A',new Equipo("PBS",5),0,0),100);
+		Partido partido3 = new Partido (1,new Pais("Qatar",false,'A',new Equipo("QFA",4),0,0),	new Pais("Senegal",true,'A',new Equipo("SNG",5),0,0),100);
+		Partido partido4 = new Partido (1,new Pais("P.Bajos",false,'A',new Equipo("PBS",4),0,0),	new Pais("Ecuador",true,'A',new Equipo("ECU",5),0,0),100);
+		Partido partido5 = new Partido (1,new Pais("P.Bajos",true,'A',new Equipo("PBS",5),0,0),	new Pais("Qatar",false,'A',new Equipo("QFA",4),0,0),100);
+		Partido partido6 = new Partido (1,new Pais("Ecuador",false,'A',new Equipo("ECU",4),0,0),	new Pais("Senegal",true,'A',new Equipo("SNG",5),0,0),100);
+		
+		
+		Partido partido7 = new Partido (2,new Pais("Inglaterra",false,'B',new Equipo("ING",4),0,0),	new Pais("Iran",true,'B',new Equipo("IRN",5),0,0),100);
+		Partido partido8 = new Partido (2,new Pais("EstadosUnidos",false,'B',new Equipo("EEUU",4),0,0),new Pais("Gales",true,'B',new Equipo("GLS",5),0,0),100);
+		Partido partido9 = new Partido (2,new Pais("Inglaterra",false,'B',new Equipo("ING",4),0,0),	new Pais("EstadosUnidos",true,'B',new Equipo("EEUU",5),0,0),100);
+		Partido partido10 = new Partido (2,new Pais("Gales",false,'B',new Equipo("GLS",4),0,0),		new Pais("Iran",true,'B',new Equipo("IRN",5),0,0),100);
+		Partido partido11 = new Partido (2,new Pais("Gales",false,'B',new Equipo("GLS",4),0,0),		new Pais("Inglaterra",true,'B',new Equipo("ING",5),0,0),100);
+		Partido partido12 = new Partido (2,new Pais("Iran",false,'B',new Equipo("IRN",4),0,0),		new Pais("EstadosUnidos",true,'B',new Equipo("EEUU",5),0,0),100);
+		
+		
+		Partido partido13 = new Partido (3,new Pais("Argentina",false,'C',new Equipo("ARG",4),0,0),new Pais("Arabia.s",true,'C',new Equipo("ARS",5),0,0),100);
+		Partido partido14 = new Partido (3,new Pais("Mexico",false,'C',new Equipo("MEX",4),0,0),	new Pais("Polonia",true,'C',new Equipo("PLN",5),0,0),100);
+		Partido partido15 = new Partido (3,new Pais("Argentina",false,'C',new Equipo("ARG",4),0,0),new Pais("Mexico",true,'C',new Equipo("MEX",5),0,0),100);
+		Partido partido16 = new Partido (3,new Pais("Polonia",false,'C',new Equipo("PLN",4),0,0),	new Pais("Arabia.s",true,'C',new Equipo("ARS",5),0,0),100);
+		Partido partido17 = new Partido (3,new Pais("Polonia",false,'C',new Equipo("PLN",4),0,0),	new Pais("Argentina",true,'C',new Equipo("ARG",5),0,0),100);
+		Partido partido18 = new Partido (3,new Pais("Arabia.s",false,'C',new Equipo("ARS",4),0,0),new Pais("Mexico",true,'C',new Equipo("MEX",5),0,0),100);
+	
+		
+		Partido partido19 = new Partido (4,new Pais("Francia",false,'D',new Equipo("FRN",4),0,0),	new Pais("Australia",true,'D',new Equipo("AUS",5),0,0),100);
+		Partido partido20 = new Partido (4,new Pais("Dinamarca",false,'D',new Equipo("DNM",4),0,0),new Pais("Tunez",true,'D',new Equipo("TNZ",5),0,0),100);
+		Partido partido21 = new Partido (4,new Pais("Francia",false,'D',new Equipo("FRN",4),0,0),	new Pais("Dinamarca",true,'D',new Equipo("DNM",5),0,0),100);
+		Partido partido22 = new Partido (4,new Pais("Tunez",false,'D',new Equipo("TNZ",4),0,0),	new Pais("Australia",true,'D',new Equipo("AUS",5),0,0),100);
+		Partido partido23 = new Partido (4,new Pais("Tunez",false,'D',new Equipo("TNZ",4),0,0),	new Pais("Francia",true,'D',new Equipo("FRN",5),0,0),100);
+		Partido partido24 = new Partido (4,new Pais("Australia",false,'D',new Equipo("AUS",4),0,0),new Pais("Dinamarca",true,'D',new Equipo("DNM",5),0,0),100);
+		
+		
+		Partido partido25 = new Partido (5,new Pais("España",false,'E',new Equipo("ESP",4),0,0),	new Pais("CostaRica",true,'E',new Equipo("CTR",5),0,0),100);
+		Partido partido26 = new Partido (5,new Pais("Alemania",false,'E',new Equipo("ALM",4),0,0),new Pais("Japon",true,'E',new Equipo("JPN",5),0,0),100);
+		Partido partido27 = new Partido (5,new Pais("España",false,'E',new Equipo("ESP",4),0,0),	new Pais("Alemania",true,'D',new Equipo("ALM",5),0,0),100);
+		Partido partido28 = new Partido (5,new Pais("Japon",false,'E',new Equipo("JPN",4),0,0),	new Pais("CostaRica",true,'D',new Equipo("CTR",5),0,0),100);
+		Partido partido29 = new Partido (5,new Pais("Japon",false,'E',new Equipo("JPN",4),0,0),	new Pais("España",true,'D',new Equipo("ESP",5),0,0),100);
+		Partido partido30 = new Partido (5,new Pais("CostaRica",false,'E',new Equipo("CTR",4),0,0),new Pais("Alemania",true,'D',new Equipo("ALM",5),0,0),100);
+		
+		
+		Partido partido31 = new Partido (6,new Pais("Belgica",false,'F',new Equipo("BLG",4),0,0),	new Pais("Canada",true,'F',new Equipo("CND",5),0,0),100);
+		Partido partido32 = new Partido (6,new Pais("Marruecos",false,'F',new Equipo("MRC",4),0,0),new Pais("Croacia",true,'F',new Equipo("CRC",5),0,0),100);
+		Partido partido33 = new Partido (6,new Pais("Belgica",false,'F',new Equipo("BLG",4),0,0),	new Pais("Marruecos",true,'F',new Equipo("MRC",5),0,0),100);
+		Partido partido34 = new Partido (6,new Pais("Croacia",false,'F',new Equipo("CRC",4),0,0),	new Pais("Canada",true,'F',new Equipo("CND",5),0,0),100);
+		Partido partido35 = new Partido (6,new Pais("Croacia",false,'F',new Equipo("CRC",4),0,0),	new Pais("Belgica",true,'F',new Equipo("BLG",5),0,0),100);
+		Partido partido36 = new Partido (6,new Pais("Canada",false,'F',new Equipo("CND",4),0,0),	new Pais("Marruecos",true,'F',new Equipo("MRC",5),0,0),100);
+		
+		
+		Partido partido37 = new Partido (7,new Pais("Brasil",false,'G',new Equipo("BRS",4),0,0),	new Pais("Serbia",true,'G',new Equipo("SRB",5),0,0),100);
+		Partido partido38 = new Partido (7,new Pais("Suiza",false,'G',new Equipo("SZA",4),0,0),	new Pais("Camerun",true,'G',new Equipo("CMR",5),0,0),100);
+		Partido partido39 = new Partido (7,new Pais("Brasil",false,'G',new Equipo("BRS",4),0,0),	new Pais("Suiza",true,'G',new Equipo("SZA",5),0,0),100);
+		Partido partido40 = new Partido (7,new Pais("Camerun",false,'G',new Equipo("CMR",4),0,0),	new Pais("Serbia",true,'G',new Equipo("SRB",5),0,0),100);
+		Partido partido41 = new Partido (7,new Pais("Camerun",false,'G',new Equipo("CMR",4),0,0),	new Pais("Brasil",true,'G',new Equipo("BRS",5),0,0),100);
+		Partido partido42 = new Partido (7,new Pais("Serbia",false,'G',new Equipo("SRB",4),0,0),	new Pais("Suiza",true,'G',new Equipo("SZA",5),0,0),100);
+		
+		
+		Partido partido43 = new Partido (8,new Pais("Portugal",false,'H',new Equipo("PRT",4),0,0),new Pais("Ghana",true,'H',new Equipo("GHN",5),0,0),100);
+		Partido partido44 = new Partido (8,new Pais("Uruguay",false,'H',new Equipo("URG",4),0,0),	new Pais("Corea.s",true,'H',new Equipo("CRS",5),0,0),100);
+		Partido partido45 = new Partido (8,new Pais("Portugal",false,'H',new Equipo("PRT",4),0,0),new Pais("Uruguay",true,'H',new Equipo("URG",5),0,0),100);
+		Partido partido46 = new Partido (8,new Pais("Corea.s",false,'H',new Equipo("CRS",4),0,0),	new Pais("Ghana",true,'H',new Equipo("GHN",5),0,0),100);
+		Partido partido47 = new Partido (8,new Pais("Corea.s",false,'H',new Equipo("CRS",4),0,0),	new Pais("Portugal",true,'H',new Equipo("PRT",5),0,0),100);
+		Partido partido48 = new Partido (8,new Pais("Ghana",false,'H',new Equipo("GHN",4),0,0),	new Pais("Uruguay",true,'H',new Equipo("URG",5),0,0),100);
 		todos.add(partido1);
 		todos.add(partido2);
 		todos.add(partido3);
 		todos.add(partido4);
 		todos.add(partido5);
 		todos.add(partido6);
-		
-		Partido partido7 = new Partido (2,new Pais("Inglaterra",1,false,'B',new Equipo("ING",4),0,0),	new Pais("Iran",3,true,'B',new Equipo("IRN",5),0,0),100);
-		Partido partido8 = new Partido (2,new Pais("EstadosUnidos",1,false,'B',new Equipo("EEUU",4),0,0),new Pais("Gales",3,true,'B',new Equipo("GLS",5),0,0),100);
-		Partido partido9 = new Partido (2,new Pais("Inglaterra",1,false,'B',new Equipo("ING",4),0,0),	new Pais("EstadosUnidos",3,true,'B',new Equipo("EEUU",5),0,0),100);
-		Partido partido10 = new Partido (2,new Pais("Gales",1,false,'B',new Equipo("GLS",4),0,0),		new Pais("Iran",3,true,'B',new Equipo("IRN",5),0,0),100);
-		Partido partido11 = new Partido (2,new Pais("Gales",1,false,'B',new Equipo("GLS",4),0,0),		new Pais("Inglaterra",3,true,'B',new Equipo("ING",5),0,0),100);
-		Partido partido12 = new Partido (2,new Pais("Iran",1,false,'B',new Equipo("IRN",4),0,0),		new Pais("EstadosUnidos",3,true,'B',new Equipo("EEUU",5),0,0),100);
 		todos.add(partido7);
 		todos.add(partido8);
 		todos.add(partido9);
 		todos.add(partido10);
 		todos.add(partido11);
 		todos.add(partido12);
-		
-		Partido partido13 = new Partido (3,new Pais("Argentina",1,false,'C',new Equipo("ARG",4),0,0),new Pais("Arabia.s",3,true,'C',new Equipo("ARS",5),0,0),100);
-		Partido partido14 = new Partido (3,new Pais("Mexico",1,false,'C',new Equipo("MEX",4),0,0),	new Pais("Polonia",3,true,'C',new Equipo("PLN",5),0,0),100);
-		Partido partido15 = new Partido (3,new Pais("Argentina",1,false,'C',new Equipo("ARG",4),0,0),new Pais("Mexico",3,true,'C',new Equipo("MEX",5),0,0),100);
-		Partido partido16 = new Partido (3,new Pais("Polonia",1,false,'C',new Equipo("PLN",4),0,0),	new Pais("Arabia.s",3,true,'C',new Equipo("ARS",5),0,0),100);
-		Partido partido17 = new Partido (3,new Pais("Polonia",1,false,'C',new Equipo("PLN",4),0,0),	new Pais("Argentina",3,true,'C',new Equipo("ARG",5),0,0),100);
-		Partido partido18 = new Partido (3,new Pais("Arabia.s",1,false,'C',new Equipo("ARS",4),0,0),new Pais("Mexico",3,true,'C',new Equipo("MEX",5),0,0),100);
 		todos.add(partido13);
 		todos.add(partido14);
 		todos.add(partido15);
 		todos.add(partido16);
 		todos.add(partido17);
 		todos.add(partido18);
-		
-		Partido partido19 = new Partido (4,new Pais("Francia",1,false,'D',new Equipo("FRN",4),0,0),	new Pais("Australia",3,true,'D',new Equipo("AUS",5),0,0),100);
-		Partido partido20 = new Partido (4,new Pais("Dinamarca",1,false,'D',new Equipo("DNM",4),0,0),new Pais("Tunez",3,true,'D',new Equipo("TNZ",5),0,0),100);
-		Partido partido21 = new Partido (4,new Pais("Francia",1,false,'D',new Equipo("FRN",4),0,0),	new Pais("Dinamarca",3,true,'D',new Equipo("DNM",5),0,0),100);
-		Partido partido22 = new Partido (4,new Pais("Tunez",1,false,'D',new Equipo("TNZ",4),0,0),	new Pais("Australia",3,true,'D',new Equipo("AUS",5),0,0),100);
-		Partido partido23 = new Partido (4,new Pais("Tunez",1,false,'D',new Equipo("TNZ",4),0,0),	new Pais("Francia",3,true,'D',new Equipo("FRN",5),0,0),100);
-		Partido partido24 = new Partido (4,new Pais("Australia",1,false,'D',new Equipo("AUS",4),0,0),new Pais("Dinamarca",3,true,'D',new Equipo("DNM",5),0,0),100);
 		todos.add(partido19);
 		todos.add(partido20);
 		todos.add(partido21);
 		todos.add(partido22);
 		todos.add(partido23);
 		todos.add(partido24);
-		
-		Partido partido25 = new Partido (5,new Pais("España",1,false,'E',new Equipo("ESP",4),0,0),	new Pais("CostaRica",3,true,'E',new Equipo("CTR",5),0,0),100);
-		Partido partido26 = new Partido (5,new Pais("Alemania",1,false,'E',new Equipo("ALM",4),0,0),new Pais("Japon",3,true,'E',new Equipo("JPN",5),0,0),100);
-		Partido partido27 = new Partido (5,new Pais("España",1,false,'E',new Equipo("ESP",4),0,0),	new Pais("Alemania",3,true,'D',new Equipo("ALM",5),0,0),100);
-		Partido partido28 = new Partido (5,new Pais("Japon",1,false,'E',new Equipo("JPN",4),0,0),	new Pais("CostaRica",3,true,'D',new Equipo("CTR",5),0,0),100);
-		Partido partido29 = new Partido (5,new Pais("Japon",1,false,'E',new Equipo("JPN",4),0,0),	new Pais("España",3,true,'D',new Equipo("ESP",5),0,0),100);
-		Partido partido30 = new Partido (5,new Pais("CostaRica",1,false,'E',new Equipo("CTR",4),0,0),new Pais("Alemania",3,true,'D',new Equipo("ALM",5),0,0),100);
 		todos.add(partido25);
 		todos.add(partido26);
 		todos.add(partido27);
 		todos.add(partido28);
 		todos.add(partido29);
 		todos.add(partido30);
-		
-		Partido partido31 = new Partido (6,new Pais("Belgica",1,false,'F',new Equipo("BLG",4),0,0),	new Pais("Canada",3,true,'F',new Equipo("CND",5),0,0),100);
-		Partido partido32 = new Partido (6,new Pais("Marruecos",1,false,'F',new Equipo("MRC",4),0,0),new Pais("Croacia",3,true,'F',new Equipo("CRC",5),0,0),100);
-		Partido partido33 = new Partido (6,new Pais("Belgica",1,false,'F',new Equipo("BLG",4),0,0),	new Pais("Marruecos",3,true,'F',new Equipo("MRC",5),0,0),100);
-		Partido partido34 = new Partido (6,new Pais("Croacia",1,false,'F',new Equipo("CRC",4),0,0),	new Pais("Canada",3,true,'F',new Equipo("CND",5),0,0),100);
-		Partido partido35 = new Partido (6,new Pais("Croacia",1,false,'F',new Equipo("CRC",4),0,0),	new Pais("Belgica",3,true,'F',new Equipo("BLG",5),0,0),100);
-		Partido partido36 = new Partido (6,new Pais("Canada",1,false,'F',new Equipo("CND",4),0,0),	new Pais("Marruecos",3,true,'F',new Equipo("MRC",5),0,0),100);
 		todos.add(partido31);
 		todos.add(partido32);
 		todos.add(partido33);
 		todos.add(partido34);
 		todos.add(partido35);
 		todos.add(partido36);
-		
-		Partido partido37 = new Partido (7,new Pais("Brasil",1,false,'G',new Equipo("BRS",4),0,0),	new Pais("Serbia",3,true,'G',new Equipo("SRB",5),0,0),100);
-		Partido partido38 = new Partido (7,new Pais("Suiza",1,false,'G',new Equipo("SZA",4),0,0),	new Pais("Camerun",3,true,'G',new Equipo("CMR",5),0,0),100);
-		Partido partido39 = new Partido (7,new Pais("Brasil",1,false,'G',new Equipo("BRS",4),0,0),	new Pais("Suiza",3,true,'G',new Equipo("SZA",5),0,0),100);
-		Partido partido40 = new Partido (7,new Pais("Camerun",1,false,'G',new Equipo("CMR",4),0,0),	new Pais("Serbia",3,true,'G',new Equipo("SRB",5),0,0),100);
-		Partido partido41 = new Partido (7,new Pais("Camerun",1,false,'G',new Equipo("CMR",4),0,0),	new Pais("Brasil",3,true,'G',new Equipo("BRS",5),0,0),100);
-		Partido partido42 = new Partido (7,new Pais("Serbia",1,false,'G',new Equipo("SRB",4),0,0),	new Pais("Suiza",3,true,'G',new Equipo("SZA",5),0,0),100);
 		todos.add(partido37);
 		todos.add(partido38);
 		todos.add(partido39);
 		todos.add(partido40);
 		todos.add(partido41);
 		todos.add(partido42);
-		
-		Partido partido43 = new Partido (8,new Pais("Portugal",1,false,'H',new Equipo("PRT",4),0,0),new Pais("Ghana",3,true,'H',new Equipo("GHN",5),0,0),100);
-		Partido partido44 = new Partido (8,new Pais("Uruguay",1,false,'H',new Equipo("URG",4),0,0),	new Pais("Corea.s",3,true,'H',new Equipo("CRS",5),0,0),100);
-		Partido partido45 = new Partido (8,new Pais("Portugal",1,false,'H',new Equipo("PRT",4),0,0),new Pais("Uruguay",3,true,'H',new Equipo("URG",5),0,0),100);
-		Partido partido46 = new Partido (8,new Pais("Corea.s",1,false,'H',new Equipo("CRS",4),0,0),	new Pais("Ghana",3,true,'H',new Equipo("GHN",5),0,0),100);
-		Partido partido47 = new Partido (8,new Pais("Corea.s",1,false,'H',new Equipo("CRS",4),0,0),	new Pais("Portugal",3,true,'H',new Equipo("PRT",5),0,0),100);
-		Partido partido48 = new Partido (8,new Pais("Ghana",1,false,'H',new Equipo("GHN",4),0,0),	new Pais("Uruguay",3,true,'H',new Equipo("URG",5),0,0),100);
 		todos.add(partido43);
 		todos.add(partido44);
 		todos.add(partido45);

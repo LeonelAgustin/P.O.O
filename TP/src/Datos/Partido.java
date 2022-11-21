@@ -5,11 +5,12 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 
 public class Partido {
+	private int id;
 	private Pais equipo1;
 	private Pais equipo2;
 	private int duracion;
 	
-	public Partido(int id, Pais equipo1, Pais equipo2, int duracion) {
+	public Partido(int id,Pais equipo1, Pais equipo2, int duracion) {
 		super();
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;
