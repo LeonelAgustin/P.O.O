@@ -199,6 +199,7 @@ public class Main {
 			partido.getEquipo1().setGoles(a);
 			 b = Integer.parseInt(JOptionPane.showInputDialog("\ningrese goles de "+partido.getEquipo2().getNombre())); 
 			partido.getEquipo2().setGoles(b);
+			
 			if (a == b) {
 				//todos.get(i).getEquipo1().setPuntos((todos.get(i).getEquipo1().getPuntos())+0);
 				partido.getEquipo1().setPosicion(0);
@@ -241,6 +242,7 @@ public class Main {
 		int goles2 = 0;
 		int puntos2 = 0;
 		String paisSegundo ="";
+		
 		for (Pais  pais : paises) {
 			JOptionPane.showMessageDialog(null, pais.getNombre()+" goles: "+pais.getGoles()+" puntos: "+pais.getPuntos());
 			if (pais.getPuntos()>maxpuntos) {//gano
